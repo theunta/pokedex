@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-size: cover;
+}
+
+body {
+  margin: 0 2rem;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+form fieldset {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+form input {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  border: 1px solid rgb(106, 157, 228);
+  padding: 0 1rem;
+  box-shadow: 3px 3px 3px rgb(106, 157, 228);
+  background-color: lightblue;
+  opacity: 0.7;
+}
