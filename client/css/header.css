@@ -1,0 +1,28 @@
+.trainerCard {
+  display: inline-block;
+  position: right;
+  border: 1px solid black;
+  height: 100px;
+  width: 400px;
+  background-color: lightblue;
+}
+header {
+  display: flex;
+}
+
+.title{
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.favouritePokemon {
+  width: 10px;
+  height: 10px;
+  background-color: lightgreen;
+  border: green;
+}
+.favPokemonContainer {
+  position: right;
+  display: grid;
+}
