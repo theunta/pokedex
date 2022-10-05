@@ -48,7 +48,7 @@ function login(event) {
   // takes data from the form html tag and converts it into an object literal.
   const data = Object.fromEntries(new FormData(form));
 
-  console.log(form);
+  // console.log(form);
   fetch("/api/sessions", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

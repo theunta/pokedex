@@ -27,7 +27,8 @@ router.post("/add_fav", (req, res) => {
     favourite4,
     favourite5,
     favourite6
-  ).then((res) => res.json({ message: "edited successfully" }));
+  );
+  // .then((res) => res.json({ message: "edited successfully" }));
 });
 router.post("/", (req, res) => {
   const { name, email, password, avatar } = req.body;
