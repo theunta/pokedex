@@ -84,6 +84,8 @@ function signUp(event) {
     .then((res) => res.json())
     .then((userName) => {
       state.loggedInUserName = userName;
+      let showLoginSignup = document.querySelector("#showLoginSignup");
+      showLoginSignup.innerText = "";
       renderPokemonList();
       document.querySelector("#page").innerHTML = ``;
     });

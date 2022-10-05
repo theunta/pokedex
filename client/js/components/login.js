@@ -62,6 +62,8 @@ function login(event) {
       } else {
         const userName = res;
         state.loggedInUserName = userName;
+        let showLoginSignup = document.querySelector("#showLoginSignup");
+        showLoginSignup.innerText = "";
         renderPokemonList();
       }
     });
