@@ -11,12 +11,12 @@ function lockIn() {
     let email = state.loggedInUserName;
 
     form = {
-      fav1: favourite1.innerText,
-      fav2: favourite2.innerText,
-      fav3: favourite3.innerText,
-      fav4: favourite4.innerText,
-      fav5: favourite5.innerText,
-      fav6: favourite6.innerText,
+      favourite1: favourite1.innerText,
+      favourite2: favourite2.innerText,
+      favourite3: favourite3.innerText,
+      favourite4: favourite4.innerText,
+      favourite5: favourite5.innerText,
+      favourite6: favourite6.innerText,
       email: state.loggedInUserName,
     };
     console.log(form);
@@ -26,11 +26,11 @@ function lockIn() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
-    })
-      .then((res) => res.json())
-      .then((userName) => {
-        console.log(userName);
-      });
+    });
+    // .then((res) => res.json())
+    // .then((userName) => {
+    //   console.log(userName);
+    // });
   }
 }
 
