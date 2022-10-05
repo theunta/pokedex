@@ -16,3 +16,9 @@ CREATE TABLE users(
   trainerID TEXT  
 );
 
+CREATE TABLE pokemonTable(
+  id SERIAL PRIMARY KEY,
+  user TEXT,
+  
+)
+
