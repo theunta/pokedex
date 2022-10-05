@@ -1,5 +1,5 @@
 function renderLogin() {
-  document.querySelector("#page").innerHTML = `
+  document.querySelector("#showLoginSignup").innerHTML = `
     <section class='log-in'>
       <form onSubmit="login(event)">
 <div class="section section-signup" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/now-ui-kit/master/assets/img/bg4.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
