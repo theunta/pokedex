@@ -1,5 +1,5 @@
 function renderSignUp() {
-  document.querySelector("#page").innerHTML = `
+  document.querySelector("#showLoginSignup").innerHTML = `
         <section class="sign-up">
 
             <form onSubmit="signUp(event)">
