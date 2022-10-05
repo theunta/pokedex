@@ -48,7 +48,7 @@ function renderLogin() {
             </div>
           </div>
           <div class="card-footer text-center">
-            <a href="#pablo" class="btn btn-neutral btn-round btn-lg">Get Started</a>
+            <a class="btn btn-neutral btn-round btn-lg">Get Started</a>
           </div>
         </form>
       </div>
