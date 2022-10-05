@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => renderEverything());
+
 function renderEverything() {
   let allPokemonContainer = document.querySelector("#poke-container");
   allPokemonContainer.innerText = "";
   let showLoginSignup = document.querySelector("#showLoginSignup");
   showLoginSignup.innerText = "";
   renderPokemonList();
+  console.log('meow')
+  setTimeout(() => {
+    favourite()
+    // console.log(document.querySelectorAll('button'))
+  }, "1000")
 }
 
 function renderPokemonList() {
@@ -14,7 +20,8 @@ function renderPokemonList() {
       allPokemon.results.forEach((eachPokemon) => {
         renderPokemonData(eachPokemon);
       });
-    });
+    })
+    .then(console.log(document.querySelectorAll('button')));
 }
 
 function renderPokemonData(pokemon) {
@@ -42,11 +49,53 @@ function renderPokemon(pokeData) {
 
   let pokeTypes = document.createElement("ul");
 
+  let favButton = document.createElement("button");
+  favButton.id = `${pokeData.name}`
+  favButton.innerText = "Favourite"
+
   createTypes(pokeData.types, pokeTypes);
 
-  pokeContainer.append(pokeName, pokeNumber, pokeTypes);
+  pokeContainer.append(pokeName, pokeNumber, pokeTypes, favButton);
   allPokemonContainer.appendChild(pokeContainer);
+  
 }
+// document.addEventListener('DOMContentLoaded',() => {
+
+// })
+function favourite() {
+  document.querySelectorAll('button')
+  .forEach(button => {
+    button.addEventListener('click',(event) => {
+      let content = event.target
+      if(favourite1.textContent == ''){
+        let favourite1 = document.querySelector('#favourite1')
+        favourite1.innerText = content.id
+      } else if(favourite2.textContent == ''){
+        let favourite2 = document.querySelector('#favourite2')
+        favourite2.innerText = content.id
+      }  else if(favourite3.textContent == ''){
+        let favourite3 = document.querySelector('#favourite3')
+        favourite3.innerText = content.id
+      }  else if(favourite4.textContent == ''){
+        let favourite4 = document.querySelector('#favourite4')
+        favourite4.innerText = content.id
+      }  else if(favourite5.textContent == ''){
+        let favourite5 = document.querySelector('#favourite5')
+        favourite5.innerText = content.id
+      }  else if(favourite6.textContent == ''){
+        let favourite6 = document.querySelector('#favourite6')
+        favourite6.innerText = content.id
+      } 
+    })
+  })
+}
+
+
+// function favPokemon(event) {
+//     const favButton = event.target
+//     const pokemonDOM = favButton.closest('.eachPokemon')
+//     console.log(pokemonDOM)
+// }
 
 function createTypes(types, ul) {
   types.forEach((type) => {
