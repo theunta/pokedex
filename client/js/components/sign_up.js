@@ -39,7 +39,7 @@ function renderSignUp() {
                 </div>
               </div>
               <div class="card-footer text-center">
-                <button onClick="signUp(event)" class="btn btn-neutral btn-round btn-lg">Get Started</button>
+                <button  class="btn btn-neutral btn-round btn-lg">Get Started</button>
               </div>
             </div>
           </div>
