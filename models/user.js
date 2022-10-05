@@ -33,7 +33,17 @@ const User = {
     return db
       .query(sql, [id])
       .then(dbRes => dbRes.rows[0].email)
+  },
+  
+  update: (id, favourite1, favourite2, favourite3, favourite4, favourite5, favourite6) => {
+    const sql = `
+    UPDATE users SET favourite1 = $2, favourite2 = $3, favourite3 = $4, favourite4 = $5, favourite5 = $6, favourite6 = $7 WHERE id = $1
+    `
+    return db
+      .query(sql, [id, favourite1, favourite2, favourite3, favourite4, favourite5, favourite6])
+      .then(dbRes => dbRes.rows[0].email)
   }
 }
+
 
 module.exports = User

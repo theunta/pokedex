@@ -16,6 +16,10 @@ router.post('/', (req, res) => {
   User
     .create(name, email, passwordDigest, favourite1, favourite2, favourite3, favourite4, favourite5, favourite6, avatar, trainerID)
     .then(userName => res.json(userName))
+
+  User
+    .update(id, favourite1, favourite2, favourite3, favourite4, favourite5, favourite6)
+    .then(userName => res.json(userName))
 })
 
 module.exports = router
