@@ -1,3 +1,4 @@
+
 function lockIn() {
   if (state.loggedInUserName) {
     var form;
@@ -27,12 +28,11 @@ function lockIn() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
-    // .then((res) => res.json())
-    // .then((userName) => {
-    //   console.log(userName);
-    // });
+
   }
 }
+
+
 
 // function signUp(event) {
 //   event.preventDefault();
