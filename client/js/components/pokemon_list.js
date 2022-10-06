@@ -36,6 +36,17 @@ function renderFavouritePokemon() {
       });
     });
 }
+
+// function createPokeInfo(pokeName, infoDiv) {
+//   let pokeInfoContainer = document.createElement("div")
+//   pokeInfoContainer.classList.add("info")
+
+//   let pokeInfo = document.createElement("li");
+//   pokeInfo.innerText = `https://pokeapi.co/api/v2/pokemon-species/${pokeName}`
+
+//   infoDiv.append(pokeInfo)
+// }
+
 function deleteFavourite(email) {
   fetch(`/api/pokemon/${email}`, {
     method: "DELETE",
@@ -52,8 +63,26 @@ function renderPokemonList() {
     .then((allPokemon) => {
       allPokemon.results.forEach((eachPokemon) => {
         renderPokemonData(eachPokemon);
+        renderPokeInfo(eachPokemon.name);
       });
     });
+}
+
+function renderPokeInfo(pokemon) {
+  fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`)
+    .then((res) => res.json())
+    .then((allPokemon) => {
+      let Pokemon = document.querySelectorAll('.ui-card')
+      Pokemon.forEach(eachPokemon => {
+        console.log(eachPokemon)
+        // pokemon.addEventListener('click', event => {
+          // let content = event.target
+          let pokeInfo = document.createElement("div")
+          pokeInfo.innerText = `${allPokemon.flavor_text_entries[9].flavor_text}`
+          eachPokemon.appendChild(pokeInfo)
+        // })
+       })
+    })
 }
 
 function renderPokemonData(pokemon) {
@@ -65,6 +94,7 @@ function renderPokemonData(pokemon) {
       renderPokemon(pokeData);
     });
 }
+
 
 function renderPokemon(pokeData) {
   let allPokemonContainer = document.getElementById("poke-container");
