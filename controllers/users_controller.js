@@ -15,24 +15,14 @@ router.get('/fav1', (req, res) => {
 
 router.post("/add_fav", (req, res) => {
   const {
-    favourite1,
-    favourite2,
-    favourite3,
-    favourite4,
-    favourite5,
-    favourite6,
-    email,
+    favourite,
+    email
   } = req.body;
   console.log(req.body);
 
   User.update(
     email,
-    favourite1,
-    favourite2,
-    favourite3,
-    favourite4,
-    favourite5,
-    favourite6
+    favourite
   );
   // .then((res) => res.json({ message: "edited successfully" }));
 });
@@ -45,6 +35,7 @@ router.post("/", (req, res) => {
     favourite4,
     favourite5,
     favourite6,
+    favourite,
     trainerID,
   } = "";
 
@@ -68,13 +59,27 @@ router.post("/", (req, res) => {
     avatar,
     trainerID
   ).then((userName) => res.json(userName));
+
+  User.createFav(
+    email,
+    favourite
+  );
 });
 
-router.delete('/:email', (req,res) => {
-  // const favPoke = req.params.favPoke
+// router.post('/:email'), (req, res) => {
+//   const {email} = req.state.loggedInUserName
+//   const {favourite} = "";
+//   User.createFav(
+//     email,
+//     favourite
+//   )
+// }
+
+router.delete('/:id', (req,res) => {
+  const favPoke = req.params.favPoke
 
   User
-    .delete(email)
+    .delete(favPoke)
     .then(() => res.json({ message: 'deleted successfully' }))
 })
 

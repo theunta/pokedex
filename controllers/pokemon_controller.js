@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 // const Pokemon = require('../models/pokemon')
+const User = require('../models/user')
 
 router.get('/', (req, res) => {
   Pokemon
@@ -21,9 +22,11 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req,res) => {
   const pokemonId = req.params.id
 
-  Pokemon
+  User
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
+  
+  User.createFav
 })
 
 module.exports = router

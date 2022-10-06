@@ -16,9 +16,9 @@ CREATE TABLE users(
   trainerID TEXT  
 );
 
-CREATE TABLE pokemonTable(
+CREATE TABLE favourites(
   id SERIAL PRIMARY KEY,
-  user TEXT,
-  
-)
+  email TEXT,
+  favourite TEXT
+);
 
