@@ -1,6 +1,6 @@
 function renderNavBar() {
-  if (!loggedInUserName) {
-    document.querySelector(".navBar").innerHTM = `
+  if (state.loggedInUserName == null) {
+    document.querySelector(".navBar").innerHTML = `
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" onClick="renderEverything()">
@@ -46,9 +46,9 @@ function renderNavBar() {
         </ul>
       </div>
     </div>
-  </nav>`;
+  </nav> `;
   } else {
-    document.querySelector(".navBar").innerHTM = `
+    document.querySelector(".navBar").innerHTML = `
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" onClick="renderEverything()">
