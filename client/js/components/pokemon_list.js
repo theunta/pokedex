@@ -140,7 +140,7 @@ function createPokeImage(pokeName, containerDiv) {
   pokeImgContainer.classList.add("image");
 
   let pokeImage = document.createElement("img");
-  pokeImage.srcset = `http://img.pokemondb.net/artwork/${pokeName}.jpg`;
+  pokeImage.srcset = `https://img.pokemondb.net/artwork/${pokeName}.jpg`;
 
   pokeImgContainer.append(pokeImage);
   containerDiv.append(pokeImgContainer);
