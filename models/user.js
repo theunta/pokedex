@@ -2,7 +2,7 @@ const db = require("../db/db");
 
 const User = {
   findOne: () => {
-    const sql = 'SELECT favourite1 FROM users'
+    const sql = 'SELECT favourite FROM favourites'
     return db
       .query(sql)
       .then(dbRes => dbRes.rows)
@@ -43,6 +43,24 @@ const User = {
       .then((dbRes) => dbRes.rows[0].email);
   },
 
+  createFav: (
+    email,
+    favourite
+  ) => {
+    const sql = `
+    INSERT INTO favourites(email, favourite)
+    VALUES ($1, $2)
+    RETURNING *
+    `;
+
+    return db
+    .query(sql, [
+      email,
+      favourite
+    ])
+    .then((dbRes) => dbRes.rows[0].email)
+  },
+
   findByEmail: (email) => {
     const sql = `
       SELECT * FROM users
@@ -63,31 +81,24 @@ const User = {
 
   update: (
     email,
-    favourite1,
-    favourite2,
-    favourite3,
-    favourite4,
-    favourite5,
-    favourite6
+    favourite
   ) => {
     const sql = `
-    UPDATE users SET favourite1 = $2, favourite2 = $3, favourite3 = $4, favourite4 = $5, favourite5 = $6, favourite6 = $7 WHERE email = $1
+    UPDATE favourites SET favourite = $2 WHERE email = $1
     `;
     return db
       .query(sql, [
         email,
-        favourite1,
-        favourite2,
-        favourite3,
-        favourite4,
-        favourite5,
-        favourite6,
+        favourite
       ])
       .then((dbRes) => dbRes.rows[0]);
   },
   delete: email => {
     const sql = `
-    DELETE FROM users WHERE email = $1 
+    DELETE FROM favourites WHERE email = $1 
+    INSERT INTO favourites(email, favourite)
+    VALUES ($1, $2)
+    RETURNING *
     `
     return db.query(sql, [email])
   }

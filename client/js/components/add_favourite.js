@@ -3,7 +3,7 @@ function lockIn() {
   if (state.loggedInUserName) {
     var form;
 
-    let favourite1 = document.querySelector("#favourite1");
+    let favourite = document.querySelector("#favourite1");
     let favourite2 = document.querySelector("#favourite2");
     let favourite3 = document.querySelector("#favourite3");
     let favourite4 = document.querySelector("#favourite4");
@@ -12,6 +12,7 @@ function lockIn() {
     let email = state.loggedInUserName;
 
     form = {
+      favourite: favourite.innerText,
       favourite1: favourite1.innerText,
       favourite2: favourite2.innerText,
       favourite3: favourite3.innerText,
@@ -28,7 +29,15 @@ function lockIn() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
-
+    setTimeout(() => {
+      fetch("/api/users/fav1")
+      .then(res => res.json())
+      .then(favPoke => {
+        favourites.favPoke = favPoke
+        console.log(favourites.favPoke)
+        renderFavouritePokemon()
+      })
+    }, "2000");
   }
 }
 
