@@ -6,6 +6,7 @@ function renderEverything() {
   let showLoginSignup = document.querySelector("#showLoginSignup");
   showLoginSignup.innerText = "";
   renderPokemonList();
+  renderNavBar()
   setTimeout(() => {
     favourite();
   }, "1000");
