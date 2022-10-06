@@ -6,11 +6,41 @@ function renderEverything() {
   let showLoginSignup = document.querySelector("#showLoginSignup");
   showLoginSignup.innerText = "";
   renderPokemonList();
-  console.log('meow')
   setTimeout(() => {
     favourite()
-    // console.log(document.querySelectorAll('button'))
   }, "1000")
+}
+
+function renderFavouritePokemon() {
+  fetch(`https://pokeapi.co/api/v2/pokemon-form/${favourites.favPoke[4]['favourite1']}/`)
+    .then((res) => res.json())
+    .then((fav1) => {
+      let sprite = fav1.sprites.front_default
+      let div1 = document.querySelector('#favourite1')
+      let button = document.createElement('button')
+      let image = document.createElement('img') 
+      let trainerCard = document.querySelector('.trainerCard')
+      button.textContent = 'Delete'
+      button.className = 'deleteFav'
+      image.src = sprite
+      trainerCard.appendChild(button)
+      div1.appendChild(image)
+
+      button.addEventListener('click', event => {
+        var email = state.loggedInUserName
+        console.log(email)
+        deleteFavourite(email)
+      })
+    })
+}
+function deleteFavourite(email) {
+  fetch(`/api/pokemon/${email}`, {
+    method: 'DELETE'
+    })
+    // .then(() => {
+    //   state.pokemon = state.pokemon.filter(p => p.id != pokemonId)
+    //   renderPokemonList()
+    // })
 }
 
 function renderPokemonList() {
@@ -21,7 +51,6 @@ function renderPokemonList() {
         renderPokemonData(eachPokemon);
       });
     })
-    .then(console.log(document.querySelectorAll('button')));
 }
 
 function renderPokemonData(pokemon) {
@@ -50,6 +79,7 @@ function renderPokemon(pokeData) {
   let pokeTypes = document.createElement("ul");
 
   let favButton = document.createElement("button");
+  favButton.className = 'favButton'
   favButton.id = `${pokeData.name}`
   favButton.innerText = "Favourite"
 
@@ -63,7 +93,7 @@ function renderPokemon(pokeData) {
 
 // })
 function favourite() {
-  document.querySelectorAll('button')
+  document.querySelectorAll('.favButton')
   .forEach(button => {
     button.addEventListener('click',(event) => {
       let content = event.target

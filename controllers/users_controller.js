@@ -7,6 +7,12 @@ const User = require("../models/user");
 
 // routes
 
+router.get('/fav1', (req, res) => {
+  User
+    .findOne()
+    .then(favPoke => res.json(favPoke))
+})
+
 router.post("/add_fav", (req, res) => {
   const {
     favourite1,
@@ -63,5 +69,13 @@ router.post("/", (req, res) => {
     trainerID
   ).then((userName) => res.json(userName));
 });
+
+router.delete('/:email', (req,res) => {
+  // const favPoke = req.params.favPoke
+
+  User
+    .delete(email)
+    .then(() => res.json({ message: 'deleted successfully' }))
+})
 
 module.exports = router;

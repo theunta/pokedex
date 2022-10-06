@@ -1,6 +1,12 @@
 const db = require("../db/db");
 
 const User = {
+  findOne: () => {
+    const sql = 'SELECT favourite1 FROM users'
+    return db
+      .query(sql)
+      .then(dbRes => dbRes.rows)
+  },
   create: (
     name,
     email,
@@ -79,6 +85,12 @@ const User = {
       ])
       .then((dbRes) => dbRes.rows[0]);
   },
+  delete: email => {
+    const sql = `
+    DELETE FROM users WHERE email = $1 
+    `
+    return db.query(sql, [email])
+  }
 };
 
 module.exports = User;

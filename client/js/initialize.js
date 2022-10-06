@@ -1,3 +1,6 @@
+const favourites = {
+  favPoke: []
+}
 const state = {
     pokemon: [],
     loggedInUserName: null
@@ -16,4 +19,11 @@ fetch('/api/sessions')
     if (typeof userName === 'string'){
       state.loggedInUserName = userName
     }
+  })
+
+fetch("/api/users/fav1")
+  .then(res => res.json())
+  .then(favPoke => {
+    favourites.favPoke = favPoke
+    console.log(favourites.favPoke)
   })
